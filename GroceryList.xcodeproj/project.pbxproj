@@ -14,6 +14,7 @@
 		B4414B1726BCD42900A8DE68 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B4414B1626BCD42900A8DE68 /* Assets.xcassets */; };
 		B4414B1A26BCD42900A8DE68 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B4414B1826BCD42900A8DE68 /* LaunchScreen.storyboard */; };
 		B4414B2926BCDF7900A8DE68 /* GroceryTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4414B2826BCDF7900A8DE68 /* GroceryTableViewController.swift */; };
+		B4414B2D26BE78B900A8DE68 /* InfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4414B2C26BE78B900A8DE68 /* InfoViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -26,6 +27,7 @@
 		B4414B1926BCD42900A8DE68 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		B4414B1B26BCD42900A8DE68 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		B4414B2826BCDF7900A8DE68 /* GroceryTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroceryTableViewController.swift; sourceTree = "<group>"; };
+		B4414B2C26BE78B900A8DE68 /* InfoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InfoViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -81,6 +83,7 @@
 			isa = PBXGroup;
 			children = (
 				B4414B2826BCDF7900A8DE68 /* GroceryTableViewController.swift */,
+				B4414B2C26BE78B900A8DE68 /* InfoViewController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -168,6 +171,7 @@
 				B4414B2926BCDF7900A8DE68 /* GroceryTableViewController.swift in Sources */,
 				B4414B0D26BCD41800A8DE68 /* SceneDelegate.swift in Sources */,
 				B4414B1526BCD41800A8DE68 /* GroceryList.xcdatamodeld in Sources */,
+				B4414B2D26BE78B900A8DE68 /* InfoViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

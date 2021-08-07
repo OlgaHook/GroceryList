@@ -3,6 +3,7 @@
     <device id="retina4_7" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="18093"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -16,7 +17,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="shoppingCell" textLabel="66r-gJ-I6R" style="IBUITableViewCellStyleDefault" id="Bkt-h8-YIJ">
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" reuseIdentifier="shoppingCell" textLabel="66r-gJ-I6R" style="IBUITableViewCellStyleDefault" id="Bkt-h8-YIJ">
                                 <rect key="frame" x="0.0" y="24.5" width="375" height="43.5"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="Bkt-h8-YIJ" id="vSl-G2-WJk">
@@ -40,9 +41,20 @@
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" title="Grocery Shopping List" id="rL6-du-ygd">
-                        <barButtonItem key="leftBarButtonItem" image="moon.circle" catalog="system" id="XYX-pU-osD">
-                            <color key="tintColor" systemColor="labelColor"/>
-                        </barButtonItem>
+                        <leftBarButtonItems>
+                            <barButtonItem image="moon.circle" catalog="system" id="XYX-pU-osD">
+                                <color key="tintColor" systemColor="labelColor"/>
+                                <connections>
+                                    <segue destination="xyJ-3q-CoK" kind="presentation" id="xsG-Mt-iAf"/>
+                                </connections>
+                            </barButtonItem>
+                            <barButtonItem image="trash.fill" catalog="system" id="Yf3-Hw-pw5">
+                                <color key="tintColor" systemColor="systemRedColor"/>
+                                <connections>
+                                    <action selector="deleteAllData:" destination="Xh0-34-v2q" id="wPw-fA-lxu"/>
+                                </connections>
+                            </barButtonItem>
+                        </leftBarButtonItems>
                         <barButtonItem key="rightBarButtonItem" image="cart.badge.plus" catalog="system" id="wge-iC-3So">
                             <color key="tintColor" systemColor="labelColor"/>
                             <connections>
@@ -54,6 +66,31 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="j79-Zf-cZh" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-1065" y="143"/>
+        </scene>
+        <!--View Controller-->
+        <scene sceneID="Si7-4C-d1w">
+            <objects>
+                <viewController id="xyJ-3q-CoK" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="gOZ-UV-GVT">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="647"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ocy-i6-2Sg">
+                                <rect key="frame" x="310" y="31" width="30" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" red="0.80040115119999999" green="0.8925574422" blue="0.33207207509999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <state key="normal" title="X">
+                                    <color key="titleColor" systemColor="labelColor"/>
+                                </state>
+                            </button>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="MMJ-8w-tjH"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="5S5-PL-8L0" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-396" y="161"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="0Hd-cE-f5d">
@@ -77,11 +114,15 @@
     <resources>
         <image name="cart.badge.plus" catalog="system" width="128" height="106"/>
         <image name="moon.circle" catalog="system" width="128" height="121"/>
+        <image name="trash.fill" catalog="system" width="121" height="128"/>
         <systemColor name="labelColor">
             <color white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+        <systemColor name="systemRedColor">
+            <color red="1" green="0.23137254901960785" blue="0.18823529411764706" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
     </resources>
 </document>
