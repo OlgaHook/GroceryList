@@ -69,24 +69,26 @@ class GroceryTableViewController: UITableViewController {
         
     }
     
+    func deleteData(){
+       //let appDelegate = UIApplication.shared.delegate as! AppDelegate
+        
+    }
    
     @IBAction func deleteAllData(_ sender: Any) {
+        
         let allertContrDelete = UIAlertController(title: "Delete All", message: "Do you want to delete All?", preferredStyle: .alert)
     
-        let DeleteConfirmButton = UIAlertAction(title:"Delete All", style: .destructive){
-            alertAction in
-            let entity = NSEntityDescription.entity(forEntityName: "Grocery", in: self.manageObjectContext!)
-           
-            
-            
-        }
+        let deleteConfirmButton = UIAlertAction(title:"Delete All", style: .destructive)
+        allertContrDelete.addAction(deleteConfirmButton)
+        
         let cancelDeleteAllButton = UIAlertAction(title: "Cancel", style: .default, handler: nil)
-        allertContrDelete.addAction(cancelDeleteAllButton)
         allertContrDelete.addAction(cancelDeleteAllButton)
         
         present(allertContrDelete, animated: true, completion: nil)
+        
+        //run func deleteData
+        
     }
-    
     
     
     @IBAction func addNewShoppingItem(_ sender: Any) {
