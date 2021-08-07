@@ -42,7 +42,7 @@
                     </tableView>
                     <navigationItem key="navigationItem" title="Grocery Shopping List" id="rL6-du-ygd">
                         <leftBarButtonItems>
-                            <barButtonItem image="moon.circle" catalog="system" id="XYX-pU-osD">
+                            <barButtonItem image="info.circle.fill" catalog="system" id="XYX-pU-osD">
                                 <color key="tintColor" systemColor="labelColor"/>
                                 <connections>
                                     <segue destination="xyJ-3q-CoK" kind="presentation" id="xsG-Mt-iAf"/>
@@ -67,30 +67,73 @@
             </objects>
             <point key="canvasLocation" x="-1065" y="143"/>
         </scene>
-        <!--View Controller-->
+        <!--Info View Controller-->
         <scene sceneID="Si7-4C-d1w">
             <objects>
-                <viewController id="xyJ-3q-CoK" sceneMemberID="viewController">
+                <viewController id="xyJ-3q-CoK" customClass="InfoViewController" customModule="GroceryList" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="gOZ-UV-GVT">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="647"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <button opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ocy-i6-2Sg">
-                                <rect key="frame" x="310" y="31" width="30" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="backgroundColor" red="0.80040115119999999" green="0.8925574422" blue="0.33207207509999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            <button opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ieF-1g-jlF">
+                                <rect key="frame" x="293" y="39" width="40" height="40"/>
+                                <color key="backgroundColor" red="0.57789178900000004" green="0.8925574422" blue="0.50422290859999996" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="40" id="NIx-Jm-7m9"/>
+                                    <constraint firstAttribute="width" constant="40" id="dgc-g7-FvQ"/>
+                                </constraints>
                                 <state key="normal" title="X">
-                                    <color key="titleColor" systemColor="labelColor"/>
+                                    <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </state>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                        <integer key="value" value="20"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                                <connections>
+                                    <action selector="InfoVCButtonTapped:" destination="xyJ-3q-CoK" eventType="touchUpInside" id="7mF-3f-Tuv"/>
+                                    <action selector="closeInfoVCButtonTapped:" destination="Dug-B4-dsL" eventType="touchUpInside" id="eqL-EX-vGs"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Jgw-0N-ZSW">
+                                <rect key="frame" x="41" y="573" width="293" height="38"/>
+                                <color key="backgroundColor" red="0.57789178900000004" green="0.8925574422" blue="0.50422290859999996" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="38" id="aMt-vX-dtr"/>
+                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="293" id="iBG-qi-ufr"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="Helvetica" family="Helvetica" pointSize="22"/>
+                                <state key="normal" title="Open Settings">
+                                    <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                        <integer key="value" value="10"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                                <connections>
+                                    <action selector="openSettingsButtonTapped:" destination="xyJ-3q-CoK" eventType="touchUpInside" id="fRV-fK-ulH"/>
+                                </connections>
                             </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="MMJ-8w-tjH"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="Jgw-0N-ZSW" firstAttribute="top" secondItem="ieF-1g-jlF" secondAttribute="bottom" constant="494" id="2H0-9L-uhg"/>
+                            <constraint firstItem="ieF-1g-jlF" firstAttribute="top" secondItem="MMJ-8w-tjH" secondAttribute="top" constant="39" id="APx-D5-DJp"/>
+                            <constraint firstItem="Jgw-0N-ZSW" firstAttribute="leading" secondItem="MMJ-8w-tjH" secondAttribute="leading" constant="41" id="BG9-bt-R3y"/>
+                            <constraint firstItem="MMJ-8w-tjH" firstAttribute="trailing" secondItem="Jgw-0N-ZSW" secondAttribute="trailing" constant="41" id="YBg-TP-JHE"/>
+                            <constraint firstItem="ieF-1g-jlF" firstAttribute="leading" secondItem="MMJ-8w-tjH" secondAttribute="leading" constant="293" id="n3f-vi-FdD"/>
+                        </constraints>
                     </view>
+                    <connections>
+                        <outlet property="openSettingsButton" destination="Jgw-0N-ZSW" id="X5s-hS-SFa"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="5S5-PL-8L0" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+                <exit id="Dug-B4-dsL" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
-            <point key="canvasLocation" x="-396" y="161"/>
+            <point key="canvasLocation" x="-346.39999999999998" y="144.3778110944528"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="0Hd-cE-f5d">
@@ -113,7 +156,7 @@
     </scenes>
     <resources>
         <image name="cart.badge.plus" catalog="system" width="128" height="106"/>
-        <image name="moon.circle" catalog="system" width="128" height="121"/>
+        <image name="info.circle.fill" catalog="system" width="128" height="121"/>
         <image name="trash.fill" catalog="system" width="121" height="128"/>
         <systemColor name="labelColor">
             <color white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
