@@ -8,11 +8,8 @@
 import UIKit
 
 /*After  Grocery(class) and Atributes were created in CoreData ->GroceryList.xcdatamodeld-> import
-*/
+ */
 import CoreData
-
-
-
 
 class GroceryTableViewController: UITableViewController {
     
@@ -20,14 +17,12 @@ class GroceryTableViewController: UITableViewController {
      
      */
     //var groceries = [String]()
-      var groceries = [Grocery]()
+    var groceries = [Grocery]()
     /* we need acess Manage object contect with type of NSManageObjectContext
      */
     var manageObjectContext: NSManagedObjectContext?
     
-     
     
-
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -44,11 +39,11 @@ class GroceryTableViewController: UITableViewController {
     func loadData(){
         let request: NSFetchRequest<Grocery> = Grocery.fetchRequest()
         do{
-    //'do' must always have 'try'
+            //'do' must always have 'try'
             let result = try manageObjectContext?.fetch(request)
-    //inside here we put everything that we can fetch.Forced (!) result as it is optional
+            //inside here we put everything that we can fetch.Forced (!) result as it is optional
             groceries = result!
-    // and we need to reload Data
+            // and we need to reload Data
             tableView.reloadData()
             
         }catch{
@@ -70,7 +65,7 @@ class GroceryTableViewController: UITableViewController {
     }
     
     func deleteData(){
-       let fetchRequest = NSFetchRequest<NSFetchRequestResult>(entityName: "Grocery")
+        let fetchRequest = NSFetchRequest<NSFetchRequestResult>(entityName: "Grocery")
         let request : NSBatchDeleteRequest = NSBatchDeleteRequest(fetchRequest: fetchRequest)
         do{
             try manageObjectContext?.execute(request)
@@ -80,11 +75,11 @@ class GroceryTableViewController: UITableViewController {
         }
         
     }
-   
+    
     @IBAction func deleteAllData(_ sender: Any) {
         
         let allertContrDelete = UIAlertController(title: "Delete All", message: "Do you want to delete All?", preferredStyle: .alert)
-    
+        
         let deleteConfirmButton = UIAlertAction(title:"Delete All", style: .destructive)
         allertContrDelete.addAction(deleteConfirmButton)
         
@@ -100,7 +95,7 @@ class GroceryTableViewController: UITableViewController {
     
     
     @IBAction func addNewShoppingItem(_ sender: Any) {
-      //creating Allert Pop Up controller
+        //creating Allert Pop Up controller
         let allertController = UIAlertController(title: "Grocery Item", message: "What do you want to add?", preferredStyle: .alert)
         //to add a textField on a top of Allert controller
         allertController.addTextField{ textField in
@@ -114,14 +109,14 @@ class GroceryTableViewController: UITableViewController {
             let entity = NSEntityDescription.entity(forEntityName: "Grocery", in: self.manageObjectContext!)
             let grocery = NSManagedObject(entity: entity!, insertInto: self.manageObjectContext)
             grocery.setValue(textField?.text, forKey: "item")
-           
+            
             self.saveData()
             
             //to put all we gonna type in groceries (forced)
-           /* Took off self.  after var groceries = [Grocery]()
+            /* Took off self.  after var groceries = [Grocery]()
              self.groceries.append(textField!.text!)
-            self.tableView.reloadData()
- */
+             self.tableView.reloadData()
+             */
         }
         // addAction
         let cancelButton = UIAlertAction(title: "Cancel", style: .destructive, handler: nil)
@@ -136,22 +131,22 @@ class GroceryTableViewController: UITableViewController {
     
     
     // MARK: - Table view data source
-
+    
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
         return groceries.count
     }
-
+    
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "shoppingCell", for: indexPath)
-
-       // cell.textLabel?.text = groceries[indexPath.row]
+        
+        // cell.textLabel?.text = groceries[indexPath.row]
         
         let grocery = groceries[indexPath.row]
         cell.textLabel?.text = grocery.value(forKey: "item") as? String
         // = grocery.completed ? ->means IF COMPLETED use .checkmark : -> IF NOT COMPLETED use .none
         cell.accessoryType = grocery.completed ? .checkmark : .none
-         
+        
         return cell
     }
     
@@ -171,5 +166,5 @@ class GroceryTableViewController: UITableViewController {
         self.saveData()
         
     }
-
+    
 }
