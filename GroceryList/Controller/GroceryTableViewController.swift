@@ -70,7 +70,14 @@ class GroceryTableViewController: UITableViewController {
     }
     
     func deleteData(){
-       //let appDelegate = UIApplication.shared.delegate as! AppDelegate
+       let fetchRequest = NSFetchRequest<NSFetchRequestResult>(entityName: "Grocery")
+        let request : NSBatchDeleteRequest = NSBatchDeleteRequest(fetchRequest: fetchRequest)
+        do{
+            try manageObjectContext?.execute(request)
+            saveData()
+        }catch let error {
+            print(error.localizedDescription)
+        }
         
     }
    
@@ -86,6 +93,7 @@ class GroceryTableViewController: UITableViewController {
         
         present(allertContrDelete, animated: true, completion: nil)
         
+        deleteData()
         //run func deleteData
         
     }
