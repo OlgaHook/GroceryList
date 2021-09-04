@@ -25,7 +25,7 @@ class GroceryTableViewController: UITableViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+      
         /* to load here var manageObjectContext: NSManagedObjectContext?
          we need to access AppDelegate
          */
@@ -50,7 +50,7 @@ class GroceryTableViewController: UITableViewController {
             //here we can print any error message examp (" ")
             fatalError("Error in retrieving Grocery items")
         }
-        
+       
     }
     //to save all in basket added shopping items -> func
     func saveData(){
